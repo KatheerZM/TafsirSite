@@ -1,0 +1,479 @@
+<head>
+    <meta charset="UTF-8">
+    <script src="http://tafsir.fussilat.com/tafsir_existence.js?v=1.0"></script>
+    <script src="http://tafsir.fussilat.com/tafsir_grouper.js?v=1.0"></script>
+    <script src="http://tafsir.fussilat.com/tafsir_grouper2.js?v=1.0"></script>
+    <script src="http://tafsir.fussilat.com/maarif_info.js?v=1.0"></script>
+    <script src="http://tafsir.fussilat.com/muqbil_info.js?v=1.0"></script>
+    <script src="http://tafsir.fussilat.com/qdata.js?v=1.0"></script>
+    <script src="http://tafsir.fussilat.com/tabcontent.js?v=1.1"></script>
+    <script src="http://tafsir.fussilat.com/tabs.js?v=1.0"></script>
+    <script charset="UTF-8" type="text/javascript" src="http://tafsir.fussilat.com/search/textcheck.js?v=1.0"></script>
+    <script charset="UTF-8" type="text/javascript" src="http://tafsir.fussilat.com/search/stats.js?v=1.0"></script>  
+    <script charset="UTF-8" type="text/javascript" src="http://tafsir.fussilat.com/search/conwordreq.js?v=1.0"></script>  
+    <script charset="UTF-8" type="text/javascript" src="http://tafsir.fussilat.com/search/word.js?v=1.0"></script>  
+    <script charset="UTF-8" type="text/javascript" src="http://tafsir.fussilat.com/search/phrase.js?v=1.0"></script>  
+    <script charset="UTF-8" type="text/javascript" src="http://tafsir.fussilat.com/search/term.js?v=1.0"></script>  
+    <script charset="UTF-8" type="text/javascript" src="http://tafsir.fussilat.com/search/search.js?v=1.0"></script>
+    <script charset="UTF-8" type="text/javascript" src="http://tafsir.fussilat.com/dicts/lane_info.js?v=1.0"></script>
+    <script charset="UTF-8" type="text/javascript" src="http://tafsir.fussilat.com/dicts/dictFunctions.js?v=1.0"></script>
+    <meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate">
+    <meta http-equiv="Pragma" content="no-cache">
+    <meta http-equiv="Expires" content="0">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Tafasir of the Quran</title>
+<head>
+<body class="header">
+    <main class="container">
+        <div class="title">
+            <h2 style="font-size: 1.5em;">تفاسير القرآن<br/>Exegeses of the Quran</h2>
+        </div>
+        <div style="margin-bottom: 0em;">
+            <input id="s-choose" class="svchooser" type="text" list="surahs" placeholder="Surah" onchange="surahsChanged()"/>
+            <datalist id="surahs"></datalist>
+            <button class="arrows" id="vfor" onclick="backwardVerse()">&lt;</button>
+            <input id="v-choose" onchange="versesChanged()" type="number" class="svchooser" type="text" placeholder="Verse" min="1"  disabled/>
+            <button class="arrows" id="vbac" onclick="forwardVerse()">&gt;</button>
+            <datalist id="verses"></datalist>
+            <br/>
+            <div id="vbox" class="versebox"></div>
+        </div>
+        <div>
+            <table cellspacing="2" style="width: 100%; text-align: center; margin-top: 0%; margin-bottom: 1em;">
+                <tr>
+                    <td colspan="1" id="tabd" class="tab" onclick="changeTab('tabd')">
+                        Dictionaries
+                    </td>
+                    <td colspan="1" id="tabt" class="tabchosen">
+                        Tafsir
+                    </td>
+                    <td colspan="1" id="tabs" class="tab" onclick="changeTab('tabs')">
+                        Search
+                    </td>
+                </tr>
+            </table>        
+        </div>
+        <div id="tabdcontent" style="display: none;">
+            <table style="width: 100%;">
+                <tr>
+                    <td style="width: 50%; vertical-align: top;" id="wbw">
+                        <h3 style='margin: 0em;'>Word by Word Translation</h3>
+                    </td>
+                    <td style="vertical-align: top;">
+                        <input id="root-choose" class="svchooser" type="text" placeholder="Root" style="width: 100%;" onchange="rootsChanged()"/>
+                        <table style="width: 100%; height: 100px; margin-top: 1em;">
+                            <tr>
+                                <td class="option-none" id="dict-lane">
+                                    <a  class="optionlink">
+                                        <div class="tafsirTitle">Arabic-English Lexicon</div>
+                                        <div class="tafsirAuthor">Edward William Lane</div>
+                                    </a>
+                                </td>
+                            </tr>
+                        </table>
+                    </td>
+                </tr>
+            </table>
+        </div>
+        <div id="tabtcontent">
+            <input id="vbox-ar" class="svchooser" type="text" style="width: 100%; margin-top: 2%; text-align: right;"/>
+            <input id="vbox-en" class="svchooser" type="text" style="width: 100%;"/>
+            <table style="width: 100%; height: 200px;">
+                <tr style="width: 33%;">
+                    <td class="option-none" id="ibnkathir">
+                        <a  class="optionlink">
+                            <div class="tafsirTitle">Tafsir Al-Quran Al-Azeem</div>
+                            <div class="tafsirAuthor">Ibn Kathir</div>
+                        </a>
+                    </td>
+                    <td class="option-none" id="jalalayn" style="width: 33%;">
+                        <a class="optionlink" >
+                            <div class="tafsirTitle">Tafsir Jalalayn</div>
+                            <div class="tafsirAuthor">As-Suyuti and Al-Mahalli</div>
+                        </a>
+                    </td>
+                    <td class="option-none" id="maududi" style="width: 33%;">
+                        <a class="optionlink" >
+                            <div class="tafsirTitle">Tafheem ul-Quran</div>
+                            <div class="tafsirAuthor">Abul-Aala Maududi</div>
+                        </a>
+                    </td>
+                </tr>
+                <tr style="width: 33%;">
+                    <td class="option-none" id="maarif">
+                        <a  class="optionlink">
+                            <div class="tafsirTitle">Maariful Quran</div>
+                            <div class="tafsirAuthor">Muhammad Shafi'</div>
+                        </a>
+                    </td>
+                    <td class="option-none" id="muqbil">
+                        <a  class="optionlink">
+                            <div class="tafsirTitle">Sahih Al-Musnad Min Asbab An-Nuzul (Not Fully Added)</div>
+                            <div class="tafsirAuthor">Muqbil bin Hadi al-Wadi'i</div>
+                        </a>
+                    </td>
+                </tr>
+            </table>
+        </div>
+        <div id='tabscontent' style="display: none;">
+            <input id="inp" placeholder="Search..." style="font-size: medium; width: 100%; padding: 5px;" onchange="textchanged();" onpaste="this.onchange();" oninput="this.onchange();" />
+            <div rows="2" cols="50" id="prev" style="text-align: right; font-size: large; color: white; 
+            background-color: blue; height: 40px; padding-top: 10px; padding-bottom: 10px;">
+            </div>
+            <button id="findb" disabled="true" style="font-size: medium; width: 100%; padding-top: 10px; padding-bottom: 10px;" onclick="buttonPressed()">Find</button>
+            
+
+            <div id="results" style="border-width: 2px; border-color: black; margin-left: 0px; margin-right: 0px; width: 100%;">
+                
+            </div>
+        </div>
+
+        <div id="myModal" style="display: none;" class="modal">
+            <!-- Modal content -->
+            <div class="modal-content">
+                <table style="height: 100%; width: 100%;">
+                    <tr style="height: 3em;">
+                        <td>
+                            <div class="modal-header">
+                                <span class="close">&times;</span>
+                                <div id="tafsirTitle">Tafsir</div>
+                            </div>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <div id="tafsirText" class="modal-body">
+                                <p>Some text in the Modal Body</p>
+                                <p>Some other text...</p>
+                            </div>
+                        </td>
+                    </tr>
+                    <tr style="height: 3em;">
+                        <td>
+                            <div class="modal-footer">
+                                <table style="width: 100%; height: 100%;">
+                                    <tr>
+                                        <td style="width: 10em;">
+                                            <button class="tarrows" id="fbac" onclick="backwardTaf()">
+                                                &lt;
+                                            </button>
+                                        </td>
+                                        <td>
+
+                                        </td>
+                                        <td style="width: 10em;">
+                                            <button class="tarrows" id="ffor" onclick="forwardTaf()">
+                                                &gt;
+                                            </button>
+                                        </td>
+                                    </tr>
+                                </table>
+                                    
+                                    
+                                </div>
+                            </div>
+                        </td>
+                    </tr>
+                </table>
+                
+                
+                
+            </div>
+          
+        </div>
+        <div id="dictModal" style="display: none;" class="modal">
+            <!-- Modal content -->
+            <div class="modal-content">
+                <table style="height: 100%; width: 100%;">
+                    <tr style="height: 3em;">
+                        <td>
+                            <div class="modal-header">
+                                <span class="close">&times;</span>
+                                <div id="dictTitle">Tafsir</div>
+                            </div>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <div id="dictText" class="modal-body">
+                                <p>Some text in the Modal Body</p>
+                                <p>Some other text...</p>
+                            </div>
+                        </td>
+                    </tr>
+                    <tr style="height: 3em;">
+                        <td>
+                            <div class="modal-footer">
+                                <table style="width: 100%; height: 100%;">
+                                    <tr>
+                                        <td style="width: 10em;">
+                                            <button class="tarrows" id="wprev" onclick="backwardDict()">
+                                                &lt;
+                                            </button>
+                                        </td>
+                                        <td>
+
+                                        </td>
+                                        <td style="width: 10em;">
+                                            <button class="tarrows" id="wnext" onclick="forwardDict()">
+                                                &gt;
+                                            </button>
+                                        </td>
+                                    </tr>
+                                </table>
+                                    
+                                    
+                                </div>
+                            </div>
+                        </td>
+                    </tr>
+                </table>
+                
+                
+                
+            </div>
+          
+        </div>
+    </main>
+    
+    <script>
+        
+        // Get the <span> element that closes the modal
+        var span = document.getElementsByClassName("close")[0];
+        var span2 = document.getElementsByClassName("close")[1];
+        var modal = document.getElementById("myModal");
+        var modal2 = document.getElementById("dictModal");
+
+        // When the user clicks on <span> (x), close the modal
+        span.onclick = function() {
+                modal.style.display = "none";
+                modal2.style.display = "none";
+                versesChanged();
+            }
+        span2.onclick = function() {
+            modal.style.display = "none";
+            modal2.style.display = "none";
+            versesChanged();
+        }
+        // When the user clicks anywhere outside of the modal, close it
+        window.onclick = function(event) {
+            if (event.target == modal) {
+                modal.style.display = "none";
+                versesChanged();
+            }
+            if (event.target == modal2) {
+                modal2.style.display = "none";
+            }
+        }
+
+        window.onpopstate = () => setTimeout(backForward, 0);
+        
+        var options = '';
+        for (var i = 0; i < 114; i++)
+        {
+            options += '<option value="' + (i + 1).toString() + ". " + snames[i] + '" />';
+        }
+        document.getElementById('surahs').innerHTML = options;
+        document.getElementById("prev").innerHTML = "ح";
+        document.getElementById("prev").innerHTML = "";
+        document.getElementById("inp").value = "ح";
+        document.getElementById("inp").value = "";
+    </script>
+    <script src="http://tafsir.fussilat.com/onLoad.js?v=1.0"></script>
+    <script charset="UTF-8" type="text/javascript" src="http://tafsir.fussilat.com/search/onLoadSearch.js?v=1.0"></script>  
+
+<body>
+
+<style>
+    .header{
+        background-color: rgb(206, 231, 252);
+        overflow-y: scroll;
+    }
+    .title{
+        text-align: center;
+        color: darkblue;
+    }
+    .tafsirTitle{
+        color:black;
+        font-size: 0.8em;
+        font-weight: bold;
+        text-align: center;
+    }
+    .tafsirAuthor{
+        color: grey;
+        font-size: 0.6em;
+        text-align: center;
+
+    }
+    .tab {
+        background-color: rgb(186, 211, 232);
+        border-top: none;
+        cursor: pointer;
+    }
+    .tabchosen {
+        background-color: none;
+        border-top: thick solid;
+        border-color: rgb(186, 211, 232);
+        cursor: default;
+    }
+    .versebox{
+        font-size: 1.2em;
+        border-radius: 5px;
+        padding-top: 1%;
+        padding-bottom: 1%;
+        display: none;
+    }
+    .svchooser{
+        font-size: 1em;
+        border-radius: 5px;
+        padding-top: 1%;
+        padding-bottom: 1%;
+    }
+    .option{
+        background-color:rgb(178, 219, 252);
+        cursor: pointer;
+        color: darkblue;
+        border-radius: 5%;
+    }
+    .option-none{
+        background-color:rgba(160, 160, 160, 0.301);
+        cursor: pointer;
+        color: black;
+        border-radius: 5%;
+
+    }
+    .option-none:hover{
+        cursor: default;
+    }
+    .optionlink{
+        color: black; 
+        text-decoration: none;
+        width: 100%;
+        height: 100%;
+    }
+    .option:hover{
+        background-color: rgb(156, 208, 250);
+    }
+    #s-choose{
+        width: 48%;
+        display:inline-block;margin-right:1%;
+    }
+    #v-choose{
+        width: 22%;
+        display:inline-block;
+    }
+    .arrows{
+        width: 12%;
+        display: inline;
+        font-size: 1em;
+        border-radius: 5px;
+        padding-top: 1%;
+        padding-bottom: 1%;
+        background-color:rgb(178, 219, 252);
+        visibility: hidden;
+    }
+    .arrows:hover
+    {
+        background-color: rgb(156, 208, 250);
+    }
+    .tarrows{
+        width: 100%;
+        height: 100%;
+        font-size: 1em;
+        border-radius: 5px;
+        background-color:rgb(196, 228, 255);
+    }
+    .tarrows:hover
+    {
+        background-color:rgb(158, 201, 236);
+    }
+    .modal-header2 {
+        padding: 2px 16px;
+        background-color: rgb(78, 142, 194);
+        color: white;
+    }
+    .modal {
+        display: none; /* Hidden by default */
+        position: fixed; /* Stay in place */
+        z-index: 1; /* Sit on top */
+        left: 0;
+        top: 0;
+        width: 100%; /* Full width */
+        height: 100%; /* Full height */
+        overflow: hidden; /* Enable scroll if needed */
+        background-color: rgb(0,0,0); /* Fallback color */
+        background-color: rgba(0,0,0,0.4); /* Black w/ opacity */
+    }
+    .modal-header {
+        /*padding: 0px 16px;*/
+        padding-left: 16px;
+        padding-right: 16px;
+        background-color: #5d75ff;
+        height: 100%;
+        text-align: left;
+        color: white;
+        font-size: 1.5em;
+        padding-top: 0em;
+    }
+
+        /* Modal Body */
+    .modal-body {
+        /*padding-left: 2%;
+        padding-right: 2%;
+        padding-top: 0%;
+        padding-bottom: 2%;*/
+        height: 100%;
+        overflow: hidden scroll;
+        font-size: medium;
+        padding-right: 0.5em;
+        padding-left: 0.5em;
+        text-align: left;
+    }
+
+        /* Modal Footer */
+    .modal-footer {
+        /*padding: 2px 16px;*/
+        padding-left: 2%;
+        height: 100%;
+        background-color: #5d75ff;
+        font-size: small;
+        color: white;
+        vertical-align: middle;
+        align-items: center;
+        font-size: 0.8em;
+    }
+    .modal-content {
+        background-color: rgb(206, 231, 252);
+        /*margin-left: 0.5em;
+        margin-right: 0.5em;*/
+
+        margin-top: 1%;
+        margin-bottom: 1%;
+        margin-right: 4%;
+        margin-left: 4%;
+        padding: 0%;
+        border: 1px solid #888;
+        width: 92%; /* Could be more or less, depending on screen size */
+        height: 98%;
+        overflow: hidden;
+        display: table;
+    }
+    .close {
+        color: rgb(182, 182, 182);
+        float: right;
+        font-size: xx-large;
+        font-weight: bold;
+    }
+    .close:hover,
+    .close:focus {
+        color: rgb(216, 216, 216);
+        text-decoration: none;
+        cursor: pointer;
+    }
+    .tablinks{
+        width: 100%;
+        height: 100%;
+        padding-left: 0em;
+        padding-right: 0em;
+    }
+</style>
