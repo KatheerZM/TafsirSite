@@ -1,3 +1,3 @@
 # TafsirSite
 
-tafsir.fussilat.com
+http://tafsir.fussilat.com
