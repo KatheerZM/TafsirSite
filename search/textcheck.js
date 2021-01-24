@@ -138,7 +138,7 @@ function vselect(vs)
 	//console.log(parseInt(sver[1]));
 	CurrentSurah = parseInt(sver[0]) - 1;
 	CurrentVerse = parseInt(sver[1]);
-	updateThings();
+	updateThings(true);
 }
 function vright(vs)
 {

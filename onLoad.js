@@ -8,7 +8,7 @@ function useUrl()
     if (p.length > 1)
     {
         var splitted = p[1].split('/');
-        if (splitted.length == 2)
+        if (splitted.length == 2 && !isNaN(splitted[0]) && !isNaN(splitted[1]))
         {
             CurrentSurah = parseInt(splitted[0]) - 1;
             CurrentVerse = parseInt(splitted[1]);
@@ -30,6 +30,34 @@ function useUrl()
                 CurrentSurah = null;
                 window.history.pushState(null, '', '/');
             }
+        }
+        else if (splitted.length == 2)
+        {
+            CurrentRoot = splitted[1];
+            var givendcit = splitted[0];
+            var rbox = document.getElementById("root-choose");
+            rbox = CurrentRoot;
+            //changeTab('tabs')
+            if (!dictionaries.includes(giventafsir))
+            {
+                CurrentSurah = null;
+                CurrentSurah = null;
+                CurrentRoot = null;
+                window.history.pushState(null, '', '/');
+                return;
+            }
+            if (!lane_roots.includes(arabicToLane(CurrentRoot)))
+            {
+                CurrentSurah = null;
+                CurrentSurah = null;
+                CurrentRoot = null;
+                window.history.pushState(null, '', '/');
+                return;
+            }
+            //updateThings(false);
+            changeTab("tabs");
+            pressDict(giventafsir);
+
         }
         else if (splitted.length == 3)
         {

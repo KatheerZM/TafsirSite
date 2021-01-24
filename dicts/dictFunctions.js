@@ -33,7 +33,7 @@ function verifyDictionaries()
 
 function pressDict(dname)
 {
-    //window.history.pushState(null, '', "/" + tname + "/" + (CurrentSurah + 1).toString() + "/" + CurrentVerse.toString())
+    window.history.pushState(null, '', "/" + tname + "/" + (CurrentRoot))
     openDict(dname);
 }
 
