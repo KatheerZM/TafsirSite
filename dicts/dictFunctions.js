@@ -33,7 +33,7 @@ function verifyDictionaries()
 
 function pressDict(dname)
 {
-    window.history.pushState(null, '', "/" + tname + "/" + (CurrentRoot))
+    window.history.pushState(null, '', "/" + dname + "/" + arabicToLane(CurrentRoot))
     openDict(dname);
 }
 
@@ -101,6 +101,19 @@ function arabicToLane(arword)
     for (var i = 0; i < letsplit.length; i++)
     {
         arword = arword.replaceAll(arlsplit[i], letsplit[i]);
+    }
+    return arword;
+}
+
+function laneToArabic(arword)
+{
+    var letters = "AbtvjHxdcrzsXSDTZEgfqklmnhwy";
+    var arletters = "ابتثجحخدذرزسشصضطظعغفقكلمنهوي";
+    var letsplit = Array.from(letters);
+    var arlsplit = Array.from(arletters);
+    for (var i = 0; i < letsplit.length; i++)
+    {
+        arword = arword.replaceAll(letsplit[i], arlsplit[i]);
     }
     return arword;
 }
