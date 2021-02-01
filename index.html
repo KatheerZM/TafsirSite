@@ -24,34 +24,171 @@
     <title>Tafasir of the Quran</title>
 <head>
 <body class="header">
-    <main class="container">
-        <div class="title">
-            <h2 style="font-size: 1.5em;">تفاسير القرآن<br/>Exegeses of the Quran</h2>
+    <div class="container">
+        <div class="section">
+          <div class="content">
+            <div class="title">
+                <h2 style="font-size: 1.5em; margin: 0; margin-bottom: 0.5em;">تفاسير القرآن<br/>Exegeses of the Quran</h2>
+                </div>
+                <input id="s-choose" class="svchooser" type="text" list="surahs" placeholder="Surah" onchange="surahsChanged()"/>
+                <datalist id="surahs"></datalist>
+                <button class="arrows" id="vfor" onclick="backwardVerse()">&lt;</button>
+                <input id="v-choose" onchange="versesChanged()" type="number" class="svchooser" type="text" placeholder="Verse" min="1"  disabled/>
+                <button class="arrows" id="vbac" onclick="forwardVerse()">&gt;</button>
+                <datalist id="verses"></datalist>
+                <br/>
+                <div id="vbox" class="versebox"></div>
+          </div>
+          <div class="content section">
+              <div class="content">
+                <div>
+                    <button style="width: 33%;" class="taftab-none" disabled>
+                        <span class="taftab-span" style="vertical-align: middle; text-align: center;">Ibn Kathir</span>
+                    </button>
+                    <button style="width: 33%;" class="taftab-none" disabled>
+                        <span class="taftab-span">Jalalayn</span>
+                    </button>
+                    <button class="taftab-none" disabled>
+                        <span class="taftab-span">Maududi</span>
+                    </button>
+                </div>
+                <div>
+                    <button style="width: 33%;" class="taftab-none" disabled>
+                        <span class="taftab-span">Maarif</span>
+                    </button>
+                    <button style="width: 33%;" class="taftab-none" disabled>
+                        <span class="taftab-span">Asbab</span>
+                    </button>
+                    <button class="taftab-none" disabled>
+                        <span class="taftab-span">Others</span>
+                    </button>
+                </div>
+              </div>
+              <div class="content hello view-translation">
+                <div id="dictTitle" style="font-size: 1.5em; text-align: center;">Translation</div>
+              </div>
+              <div class="content hello view-ibnkathir">
+                <span class="close">&times;</span>
+                <div id="dictTitle" style="font-size: 1.5em;">Tafsir Ibn Kathir</div>
+              </div>
+              <div class="content hello view-jalalayn">
+                <span class="close">&times;</span>
+                <div id="dictTitle" style="font-size: 1.5em;">Tafsir Jalalayn</div>
+              </div>
+              <div class="content hello view-maududi">
+                <span class="close">&times;</span>
+                <div id="dictTitle" style="font-size: 1.5em;">Tafheem ul-Quran</div>
+              </div>
+              <div class="content hello view-maarif">
+                <span class="close">&times;</span>
+                <div id="dictTitle" style="font-size: 1.5em;">Maarif ul-Quran</div>
+              </div>
+              <div class="content hello view-muqbil">
+                <span class="close">&times;</span>
+                <div id="dictTitle" style="font-size: 1.5em;">Sahih Al-Musnad Min Asbab An-Nuzul</div>
+              </div>
+              <div class="content hello view-others">
+                <span class="close">&times;</span>
+                <div id="dictTitle" style="font-size: 1.5em;">Others</div>
+              </div>
+              <div class="scrollable-content content hello view-translation">
+                  Select a Surah and Verse in the boxes above.
+              </div>
+              <div class="scrollable-content content hello view-ibnkathir">
+              </div>
+              <div class="scrollable-content content hello view-jalalayn">
+              </div>
+              <div class="scrollable-content content hello view-maududi">
+              </div>
+              <div class="scrollable-content content hello view-maarif">
+              </div>
+              <div class="scrollable-content content hello view-muqbil">
+              </div>
+              <div class="scrollable-content content hello view-others">
+              </div>
+              <div class="content hello">
+                <button class="tarrows" style="float:left" id="wprev" onclick="backwardDict()">
+                    &lt;
+                </button>
+                <button class="tarrows" style="float: right;" id="wnext" onclick="forwardDict()">
+                    &gt;
+                </button>
+              </div>
+          </div>
         </div>
-        <div style="margin-bottom: 0em;">
-            <input id="s-choose" class="svchooser" type="text" list="surahs" placeholder="Surah" onchange="surahsChanged()"/>
-            <datalist id="surahs"></datalist>
-            <button class="arrows" id="vfor" onclick="backwardVerse()">&lt;</button>
-            <input id="v-choose" onchange="versesChanged()" type="number" class="svchooser" type="text" placeholder="Verse" min="1"  disabled/>
-            <button class="arrows" id="vbac" onclick="forwardVerse()">&gt;</button>
-            <datalist id="verses"></datalist>
-            <br/>
-            <div id="vbox" class="versebox"></div>
+    </div>
+    <main style="display: none;"> 
+        <div class="box">
+            <div class="row header2">
+                <div class="title">
+                <h2 style="font-size: 1.5em;">تفاسير القرآن<br/>Exegeses of the Quran</h2>
+                </div>
+                <input id="s-choose" class="svchooser" type="text" list="surahs" placeholder="Surah" onchange="surahsChanged()"/>
+                <datalist id="surahs"></datalist>
+                <button class="arrows" id="vfor" onclick="backwardVerse()">&lt;</button>
+                <input id="v-choose" onchange="versesChanged()" type="number" class="svchooser" type="text" placeholder="Verse" min="1"  disabled/>
+                <button class="arrows" id="vbac" onclick="forwardVerse()">&gt;</button>
+                <datalist id="verses"></datalist>
+                <br/>
+                <div id="vbox" class="versebox"></div>
+            </div>
+            <div class="row content">
+                <div class="box">
+                    <div class="row header2">
+                        <div id="tabtcontent">
+                            <div>
+                                <button style="width: 33%;" class="taftab-none" disabled>
+                                    <span style="vertical-align: middle; text-align: center;">Ibn Kathir</span>
+                                </button>
+                                <button style="width: 33%;" class="taftab-none" disabled>
+                                    <span style="vertical-align: middle; text-align: center;">Jalalayn</span>
+                                </button>
+                                <button class="taftab-none" disabled>
+                                    <span style="vertical-align: middle; text-align: center;">Maududi</span>
+                                </button>
+                            </div>
+                            <div>
+                                <button style="width: 33%;" class="taftab-none" disabled>
+                                    <span style="vertical-align: middle; text-align: center;">Ibn Kathir</span>
+                                </button>
+                                <button style="width: 33%;" class="taftab-none" disabled>
+                                    <span style="vertical-align: middle; text-align: center;">Jalalayn</span>
+                                </button>
+                                <button class="taftab-none" disabled>
+                                    <span style="vertical-align: middle; text-align: center;">Maududi</span>
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row content">
+                        <div class="text-viewer">
+                            Hello<br>
+                            Hello<br>
+                            Hello<br>Hello<br>Hello<br>Hello<br>Hello<br>Hello<br>Hello<br>Hello<br>Hello<br>
+                            Hello<br>Hello<br>Hello<br>Hello<br>Hello<br>Hello<br>Hello<br>Hello<br>Hello<br>
+                            Hello<br>Hello<br>Hello<br>Hello<br>Hello<br>Hello<br>Hello<br>Hello<br>Hello<br>
+                        </div>
+                    </div>
+                </div>
+            </div>
         </div>
-        <div>
-            <table cellspacing="2" style="width: 100%; text-align: center; margin-top: 0%; margin-bottom: 1em;">
+        <div style="display: none;">
+            <table cellspacing="2" style="width: 100%; text-align: center; margin-top: 0%; margin-bottom: 0%; padding: 0%;">
                 <tr>
                     <td colspan="1" id="tabd" class="tab" onclick="changeTab('tabd')">
-                        Dictionaries
+                        <span style="vertical-align: middle;"><h2>Dictionaries</h2></span>
                     </td>
                     <td colspan="1" id="tabt" class="tabchosen">
-                        Tafsir
+                        <span style="vertical-align: middle;"><h2>Tafsir</h2></span>
                     </td>
                     <td colspan="1" id="tabs" class="tab" onclick="changeTab('tabs')">
-                        Search
+                        <span style="vertical-align: middle;"><h2>Search</h2></span>
                     </td>
                 </tr>
             </table>        
+        </div>
+        <div>
+            
         </div>
         <div id="tabdcontent" style="display: none;">
             <table style="width: 100%;">
@@ -75,7 +212,8 @@
                 </tr>
             </table>
         </div>
-        <div id="tabtcontent">
+        
+        <div id="tabtcontent2" style="display: none;">
             <input id="vbox-ar" class="svchooser" type="text" style="width: 100%; margin-top: 2%; text-align: right;"/>
             <input id="vbox-en" class="svchooser" type="text" style="width: 100%;"/>
             <table style="width: 100%; height: 200px;">
@@ -221,9 +359,6 @@
                                         </td>
                                     </tr>
                                 </table>
-                                    
-                                    
-                                </div>
                             </div>
                         </td>
                     </tr>
@@ -323,12 +458,155 @@
         padding-bottom: 1%;
         display: none;
     }
+    /*.text-viewer{
+        background-color: rgb(226, 242, 255);
+        width: 90%;
+        height: 100%;
+        /*flex: 1 1 auto;* /
+        margin-left: 5%;
+        margin-right: 5%;
+        overflow: hidden scroll;
+        margin-bottom: 10px;
+    }
+    .container{
+        height: 100%;
+        margin: 0;
+    }
+    .content{
+        display: flex;
+        flex-flow: column;
+        height: 100%;
+    }
+    html,
+    body {
+        height: 100%;
+        margin: 0;
+    }
+
+    .box {
+        display: flex;
+        flex-flow: column;
+        height: 100%;
+    }
+
+    .box .row {
+        border: 1px dotted grey;
+    }
+
+    .box .row.header2 {
+        flex: 0 1 auto;
+        /* The above is shorthand for:
+        flex-grow: 0,
+        flex-shrink: 1,
+        flex-basis: auto
+        * /
+    }
+
+    .box .row.content {
+        flex: 1 1 auto;
+    }
+
+    .box .row.footer {
+        flex: 0 1 40px;
+    }*/
+    .container {
+        background: rgb(206, 231, 252);
+
+        /* give the outermost container a predefined size */
+        position: absolute;
+        top: 0;
+        bottom: 0;
+        left: 0;
+        width: 100%;
+        
+        display: flex;
+        flex-direction: column;
+    }
+
+    .section {
+        flex-grow: 1;
+        
+        display: flex;
+        flex-direction: column;
+        
+        /* for Firefox */
+        min-height: 0;
+    }
+
+    .content {
+    }
+
+    .scrollable-content {
+        background: rgb(223, 241, 255);
+        flex-grow: 1;
+        
+        overflow: auto;
+        
+        /* for Firefox */
+        min-height: 0;
+    }
+    .hello{
+        width: 80%;
+        margin-left: 10%;
+        margin-right: 10%;
+    }
     .svchooser{
         font-size: 1em;
         border-radius: 5px;
         padding-top: 1%;
         padding-bottom: 1%;
+        margin-bottom: 0.5em;
     }
+    .taftab{
+        background-color:rgb(134, 197, 248);
+        border: 0;
+        border-top: thick solid;
+        border-color: rgb(134, 197, 248);
+        cursor: pointer;
+        color: darkblue;
+        width: 32%;
+        height: 3em;
+        margin-bottom: 5px;
+    }
+    .taftab:hover{
+        background-color: rgb(102, 186, 255);
+        border-color: rgb(102, 186, 255);
+    }
+    .taftab-none{
+        background-color:rgb(202, 202, 202);
+        border: 0;
+        border-top: thick solid;
+        border-color: rgb(202, 202, 202);
+        cursor: pointer;
+        color: black;
+        height: 2.25em;
+        width: 32%;
+        margin-bottom: 5px;
+    }
+    .taftab-none:hover{
+        cursor: default;
+    }
+    .taftab-span{
+        vertical-align: middle; 
+        text-align: center;
+        font-size: 1em;
+    }
+    .taftab-selected{
+        background-color:rgb(206, 231, 252);
+        border: 0;
+        border-top: thick solid;
+        border-color: rgb(102, 186, 255);
+        cursor: pointer;
+        color: black;
+        height: 2em;
+        width: 32%;
+        height: 3em;
+        margin-bottom: 5px;
+    }
+    .taftab-selected:hover{
+        cursor: default;
+    }
+
     .option{
         background-color:rgb(178, 219, 252);
         cursor: pointer;
@@ -377,8 +655,8 @@
         background-color: rgb(156, 208, 250);
     }
     .tarrows{
-        width: 100%;
-        height: 100%;
+        width: 40%;
+        height: 2em;
         font-size: 1em;
         border-radius: 5px;
         background-color:rgb(196, 228, 255);
@@ -466,7 +744,7 @@
     }
     .close:hover,
     .close:focus {
-        color: rgb(216, 216, 216);
+        color: rgb(117, 117, 117);
         text-decoration: none;
         cursor: pointer;
     }
@@ -475,5 +753,26 @@
         height: 100%;
         padding-left: 0em;
         padding-right: 0em;
+    }
+    .view-translation{
+        display: inline;
+    }
+    .view-ibnkathir{
+        display: none;
+    }
+    .view-jalalayn{
+        display: none;
+    }
+    .view-maududi{
+        display: none;
+    }
+    .view-maarif{
+        display: none;
+    }
+    .view-muqbil{
+        display: none;
+    }
+    .view-others{
+        display: none;
     }
 </style>

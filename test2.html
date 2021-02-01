@@ -1,0 +1,63 @@
+<div class="container">
+  <div class="section">
+    <div class="content">
+      Lorem ipsum dolor sit amet, consectetur adipisicing elit. Labore natus quisquam, dignissimos assumenda ratione magnam impedit quod delectus, voluptatum odio neque cupiditate rem porro blanditiis maxime doloribus quibusdam. Quam, officiis?
+    </div>
+    <div class="content section">
+		<div class="content">Hello</div>
+		<div id="hello" class="scrollable-content content">
+			Hello <br>Hello <br>Hello <br>Hello <br>Hello <br>Hello <br>Hello <br>Hello <br>Hello <br>Hello <br>Hello <br>Hello <br>Hello <br>Hello <br>Hello <br>Hello <br>Hello <br>Hello <br>Hello <br>Hello <br>Hello <br>Hello <br>Hello <br>Hello <br>Hello <br>Hello <br>Hello <br>Hello <br>Hello <br>Hello <br>Hello <br>Hello <br>Hello <br>Hello <br>Hello <br>Hello <br>Hello <br>Hello <br>Hello <br>Hello <br>Hello <br>Hello <br>Hello <br>Hello <br>Hello <br>
+		</div>
+    </div>
+  </div>
+</div>
+
+<style>
+	body {
+}
+
+.container {
+  background: lightblue;
+
+  /* give the outermost container a predefined size */
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  
+  display: flex;
+  flex-direction: column;
+}
+
+.section {
+  flex-grow: 1;
+  
+  display: flex;
+  flex-direction: column;
+  
+  /* for Firefox */
+  min-height: 0;
+}
+
+.content {
+}
+
+.scrollable-content {
+  background: white;
+  flex-grow: 1;
+  
+  overflow: auto;
+  
+  /* for Firefox */
+  min-height: 0;
+}
+#hello{
+	height: 80%;
+	margin-left: 10%;
+	margin-right: 10%;
+}
+
+
+
+</style>

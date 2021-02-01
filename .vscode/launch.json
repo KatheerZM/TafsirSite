@@ -9,7 +9,7 @@
             "type": "chrome",
             "request": "launch",
             "name": "Launch Chrome against localhost",
-            "url": "C://Users//zaidm//Documents//Tafsir//index.html",
+            "url": "C://Github//TafsirSite//index.html",
             "webRoot": "${workspaceFolder}"
         },
         {
