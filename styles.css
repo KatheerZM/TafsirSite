@@ -1,0 +1,352 @@
+.site{
+    background-color: rgb(206, 231, 252);
+    overflow-y: scroll;
+}
+.title{
+    text-align: center;
+    color: darkblue;
+}
+#s-choose{
+    font-size: medium;
+    border-radius: 5px;
+    padding-top: 1%;
+    padding-bottom: 1%;
+    width: 48%;
+    display:inline-block;margin-right:1%;
+    border-width: 1px;
+    font-weight: 100;
+}
+#v-choose{
+    font-size: medium;
+    border-radius: 5px;
+    padding-top: 1%;
+    padding-bottom: 1%;
+    width: 22%;
+    display:inline-block;
+    border-width: 1px;
+    font-weight: 100;
+}
+.option{
+    background-color:rgb(178, 219, 252);
+    cursor: pointer;
+    color: darkblue;
+    border-radius: 5%;
+    padding-top: 20px;
+    padding-bottom: 20px;
+}
+.option-none{
+    background-color:rgba(160, 160, 160, 0.301);
+    cursor: pointer;
+    color: black;
+    border-radius: 5%;
+    padding-top: 20px;
+    padding-bottom: 20px;
+
+}
+.option-none:hover{
+    cursor: default;
+}
+.optionlink{
+    color: black; 
+    text-decoration: none;
+    width: 100%;
+    height: 100%;
+}
+.option:hover{
+    background-color: rgb(156, 208, 250);
+}
+.tafsirTitle{
+    color:black;
+    font-size: 1em;
+    font-weight: bold;
+    text-align: center;
+}
+.tafsirAuthor{
+    color: grey;
+    font-size: 0.8em;
+    text-align: center;
+
+}
+.arrows{
+    width: 12%;
+    display: inline;
+    font-size: 1em;
+    border-radius: 5px;
+    border-width: 1px;
+    padding-top: 1%;
+    padding-bottom: 1%;
+    background-color:rgb(178, 219, 252);
+    visibility: hidden;
+}
+.arrows:hover
+{
+    background-color: rgb(156, 208, 250);
+}
+.whitebox
+{
+    margin: 5px;
+    padding: 3px;
+    background-color: #ffffff80;
+}
+#arabic-verse
+{
+    font-size: 1.0em;
+    /*font-weight: bold;*/
+    text-align: right;
+}
+#verse-title
+{
+    font-weight: bold;
+    text-align: center;
+}
+.t-option
+{
+    background-color:rgb(178, 219, 252);
+    cursor: pointer;
+    color: darkblue;
+    border-radius: 5%;
+    margin: 1%;
+    padding: 1%;
+    width: 28%;
+    display:inline-block;
+}
+.line
+{
+    display:inline-block;
+}
+
+.loading
+{
+    color: darkblue;
+    border-radius: 5%;
+    margin: 1%;
+    padding: 1%;
+    width: 100%;
+    text-align: center;
+    display:inline-block;
+}
+.arrows{
+    width: 10%;
+    display: inline;
+    font-size: 1em;
+    border-radius: 5px;
+    padding-top: 1%;
+    padding-bottom: 1%;
+    background-color:rgb(178, 219, 252);
+    visibility: hidden;
+}
+#searchbutton
+{
+    height: 3em;
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+}
+.search-item
+{
+    padding-top: 5px; 
+    padding-bottom: 5px; 
+    margin-top: 10px; 
+    padding-right: 5px; 
+    padding-left: 5px; 
+    border-style: solid; 
+    background-color: Bisque; 
+    width: 90%;
+}
+.topper
+{
+    margin-top: 0;
+    padding-top: 0;
+    vertical-align: top;
+}
+#searchbutton:hover
+{
+    cursor: pointer;
+    height: 3.0em;
+}
+#search-button:hover
+{
+    cursor: pointer;
+}
+.arrows:hover
+{
+    background-color: rgb(156, 208, 250);
+}
+.tarrows{
+    width: 100%;
+    height: 100%;
+    font-size: 1em;
+    border-radius: 5px;
+    background-color:rgb(196, 228, 255);
+}
+.tarrows:hover
+{
+    background-color:rgb(158, 201, 236);
+}
+.t-option:hover
+{
+    background-color: rgb(156, 208, 250);
+}
+#tafsir-options
+{
+    align-items: center;
+}
+.arword
+{
+    font-family: "Droid Arabic Naskh", serif;
+    font-size: 1em;
+}
+.arabic-font
+{
+    font-family: "Droid Arabic Naskh", serif;
+}
+.arword:hover
+{
+    font-size: 1.0em;
+    color: darkgoldenrod;
+}
+.modal-header2 {
+    padding: 2px 16px;
+    background-color: rgb(78, 142, 194);
+    color: white;
+}
+.modal {
+    position: fixed; /* Stay in place */
+    z-index: 1; /* Sit on top */
+    left: 0;
+    top: 0;
+    width: 100%; /* Full width */
+    height: 100%; /* Full height */
+    overflow: hidden; /* Enable scroll if needed */
+    background-color: rgb(0,0,0); /* Fallback color */
+    background-color: rgba(0,0,0,0.4); /* Black w/ opacity */
+}
+.modal-header {
+    /*padding: 0px 16px;*/
+    padding-left: 16px;
+    padding-right: 16px;
+    background-color: #5d75ff;
+    height: 100%;
+    text-align: left;
+    color: white;
+    font-size: 1.5em;
+    padding-top: 0em;
+}
+
+    /* Modal Body */
+.modal-body {
+    /*padding-left: 2%;
+    padding-right: 2%;
+    padding-top: 0%;
+    padding-bottom: 2%;*/
+    height: 100%;
+    overflow: hidden scroll;
+    --top-offset: 164px;
+    max-height: calc(100vh - 120px);
+    font-size: medium;
+    padding-right: 0.5em;
+    padding-left: 0.5em;
+    text-align: left;
+}
+.two-parter
+{
+    max-height: calc(100vh - 40px);
+}
+.modal-body-kath {
+    /*padding-left: 2%;
+    padding-right: 2%;
+    padding-top: 0%;
+    padding-bottom: 2%;*/
+    height: 100%;
+    width: 100%;
+    overflow: hidden scroll;
+    font-size: medium;
+    padding-right: 0em;
+    padding-left: 0em;
+    text-align: left;
+}
+.modal-footer {
+    /*padding: 2px 16px;*/
+    padding-left: 2%;
+    height: 100%;
+    background-color: #5d75ff;
+    font-size: small;
+    color: white;
+    vertical-align: middle;
+    align-items: center;
+    font-size: 0.8em;
+}
+.modal-content {
+    background-color: rgb(206, 231, 252);
+    /*margin-left: 0.5em;
+    margin-right: 0.5em;*/
+
+    margin-top: 1%;
+    margin-bottom: 1%;
+    margin-right: 4%;
+    margin-left: 4%;
+    padding: 0%;
+    border: 1px solid #888;
+    width: 92%; /* Could be more or less, depending on screen size */
+    height: 98%;
+    overflow: hidden;
+    display: table;
+}
+.close {
+    color: rgb(182, 182, 182);
+    float: right;
+    font-size: xx-large;
+    font-weight: bold;
+}
+.close:hover,
+.close:focus {
+    color: rgb(216, 216, 216);
+    text-decoration: none;
+    cursor: pointer;
+}
+#arabic-word
+{
+    text-align: center;
+}
+#eng-word
+{
+    text-align: center;
+}
+#word
+{
+    width: fit-content;
+    margin: auto;
+    padding: 3px;
+    border: 1px solid black;
+}
+.nice-arabic
+{
+
+}
+.div-search
+{
+    align-content: center;
+}
+/*
+ * Droid Arabic Naskh (Arabic) http://www.google.com/fonts/earlyaccess
+ */
+ @font-face {
+  font-family: 'Droid Arabic Naskh';
+  font-style: normal;
+  font-weight: 400;
+  src: url(//fonts.gstatic.com/ea/droidarabicnaskh/v7/DroidNaskh-Regular.eot);
+  src: url(//fonts.gstatic.com/ea/droidarabicnaskh/v7/DroidNaskh-Regular.eot?#iefix) format('embedded-opentype'),
+       url(//fonts.gstatic.com/ea/droidarabicnaskh/v7/DroidNaskh-Regular.woff2) format('woff2'),
+       url(//fonts.gstatic.com/ea/droidarabicnaskh/v7/DroidNaskh-Regular.woff) format('woff'),
+       url(//fonts.gstatic.com/ea/droidarabicnaskh/v7/DroidNaskh-Regular.ttf) format('truetype');
+}
+@font-face {
+  font-family: 'Droid Arabic Naskh';
+  font-style: normal;
+  font-weight: 700;
+  src: url(//fonts.gstatic.com/ea/droidarabicnaskh/v7/DroidNaskh-Bold.eot);
+  src: url(//fonts.gstatic.com/ea/droidarabicnaskh/v7/DroidNaskh-Bold.eot?#iefix) format('embedded-opentype'),
+       url(//fonts.gstatic.com/ea/droidarabicnaskh/v7/DroidNaskh-Bold.woff2) format('woff2'),
+       url(//fonts.gstatic.com/ea/droidarabicnaskh/v7/DroidNaskh-Bold.woff) format('woff'),
+       url(//fonts.gstatic.com/ea/droidarabicnaskh/v7/DroidNaskh-Bold.ttf) format('truetype');
+}

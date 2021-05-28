@@ -92,6 +92,64 @@ function openDict (dname)
 
 }
 
+function openLane (CurrentRoot)
+{
+    var dname = "lane"; 
+    DNAME = dname;
+    var titler = document.getElementById("dictTitle");
+    var footer = document.getElementById("dictFooter");
+    titler.innerHTML = dicts_title[dname];
+    //footer.innerHTML = tafasir_footer[tname];
+    document.getElementById("dictText").innerHTML = "Loading..."
+
+    var durl = "http://tafsir.fussilat.com/dicts/" + dname + "/" + arabicToLane(CurrentRoot) + "_" + lane_roots.indexOf(arabicToLane(CurrentRoot)).toString() + ".txt"; 
+    //console.log(durl);
+    var xhttp2 = new XMLHttpRequest();
+    xhttp2.onreadystatechange = function() 
+    {
+        if (this.readyState == 4 && this.status == 200) 
+        {
+            data = this.responseText;
+            console.log("Here one");
+            if (data.charAt(0) != '=')
+            {
+            var texter = document.getElementById("dictText");
+            data = "<p>" + data.replaceAll ("FTNT", "<sup>").replaceAll ("FEND", "</sup>")
+            .replaceAll ("\n", "</p><p>")
+            .replaceAll("#", " ")
+            .replaceAll("  ", " ")
+            .replaceAll("DIVIDER", "<hr>")
+            + "</p>"
+            var content = "";
+            try{
+                
+            //Arabic Verses
+            content = data;
+            }
+            catch (err)
+            {
+            document.getElementById("vbox").innerHTML = 
+            err + "<br/>"
+            + tname;
+            }
+            texter.innerHTML = content;
+            }
+            else
+            {
+            //secondTry(data, tname);
+            }
+        }
+    };
+    xhttp2.open("GET", durl, true);
+    xhttp2.send();
+
+    // Get the modal
+    var modal = document.getElementById("dictModal");
+    modal.style.display = "block";
+    
+
+}
+
 function arabicToLane(arword)
 {
     var letters = "AbtvjHxdcrzsXSDTZEgfqklmnhwy";

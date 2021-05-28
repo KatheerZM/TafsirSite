@@ -32,7 +32,7 @@ class Search
 				surahfound.push( false);
 			}
 
-			for (var v = 0; v < surahs[s].length - 1; v++)
+			for (var v = 0; v < surahs[s].length; v++)
 			{
 				var match = false;
 				var matching = "";

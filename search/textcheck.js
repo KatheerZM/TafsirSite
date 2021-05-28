@@ -46,41 +46,39 @@ function doSearch ()
 	{
 		result = this.search.Matches(surahs, rsurahs, tsurahs, snames, 0, 113);
 		
-		/*code += "<style> </style><table class='stattable' style=\"width:100%\"> <tr > <th>Search Term</th> <th>Surahs</th> <th>Verses</th> <th>Phrases/Words</th> <th>Letters</th> </tr>";
-		for (var sc of result[1])
-		{	
-			code += "<tr> <th>"
-				+ sc.term 
-				+ "</th> <th>"
-				+ sc.sString
-				+ "</th> <th>"
-				+ sc.vString
-				+ "</th> <th>"
-				+ sc.pString
-				+ "</th> <th>"
-				+ sc.swString
-				+ "</th></tr>"
-		}
-		code += "</table>";
-		document.getElementById("results").innerHTML = code;*/
+		
 		document.getElementById("results").innerHTML = "";
 		pages = new Array()
 		for (var i = 0; i < result[0].length; i++)
 		{
 			sr = result[0][i];
 			var vs = sr.ToString();
-			document.getElementById("results").innerHTML += "<div data-current=\"" + vs + "\" id=\"res" + vs + "\" style=\"padding-top: 5px; padding-bottom: 5px; margin-top: 10px; padding-right: 5px; padding-left: 5px; border-style: solid; background-color: Bisque; width: 90%;\">"
-				+ "<div id=\"view" + vs + "\" style=\" line-height: 24px; \">"
-				+ sr.Line1(true)
-				+ "<br />"
-				+ sr.Line2()
-				+ "<br />"
-				+ sr.Line3() + " <a href=\"javascript:context('" + vs + "')\" id=\"context" + vs + "\">Context</a>"
-				+ "<br />"
-				+ "<button onclick=\"vselect('" + vs + "')\" id=\"n" + vs + "\" style=\"display: inline; \">Select</button>"
-				+ "</div>"
-				+ "<div id=\"verse" + vs + "\" style=\" line-height: 24px;\"></div>"
-				+ "</div>";
+			document.getElementById("results").innerHTML += `
+				<div data-current="${vs}" id="res${vs}" class="search-item">
+					<div id="view${vs}" style=" line-height: 24px; ">
+						${sr.Line1(true).replace(": ", ": <span class='arabic-font'>")}</span>
+						<br><span class="arabic-font">${sr.Line2()}</span>
+						<br>${sr.Line3()}
+						<a href="javascript:context('${vs}')" id="context${vs}">Context</a>
+						<br><button onclick="vselect('${vs}')" id="n${vs}" style="display: inline; ">Select</button>
+					</div>
+					<div id="verse${vs}" style=" line-height: 24px;"></div>
+				</div>`;
+			var x = `
+				<div data-current="${vs}" id="res${vs}" class="search-item">
+					<div id="view${vs}" style=" line-height: 24px; ">
+						<p>${sr.Line1(true)}</p>
+						<p class="arabic-font">${sr.Line2()}</p>
+						<p>
+							${sr.Line3()}
+							<a href="javascript:context('${vs}')" id="context${vs}">Context</a>
+						</p>
+						<p>
+							<button onclick="vselect('${vs}')" id="n${vs}" style="display: inline; ">Select</button>
+						</p>
+					</div>
+					<div id="verse1:2" style=" line-height: 24px;"></div>
+				</div>`;
 			if (result[0].length > 500)
 			{
 				
@@ -105,8 +103,13 @@ function vleft (vs)
 		cur++;
 		var sur = parseInt(vs.split(":")[0]);
 		vsnew = vs.split(":")[0] + ":" + cur.toString() + " (" + snames[sur - 1] + ")";
-		document.getElementById("verse" + vs).innerHTML = 
-			vsnew
+		document.getElementById("verse" + vs).innerHTML = `
+			${vsnew}<br/>
+			<span class="arabic-font">${surahs[sur - 1][cur - 1]}</span><br/>
+			${tsurahs[sur - 1][cur - 1]}<br/>
+			<button onclick="vselect('${vs.split(":")[0]}:${cur.toString()}')" style="display: inline;">Select</button>
+		`;
+		var x =	vsnew
 			+ "<br />"
 			+ surahs[sur - 1][cur - 1]
 			+ "<br />"
@@ -138,7 +141,11 @@ function vselect(vs)
 	//console.log(parseInt(sver[1]));
 	CurrentSurah = parseInt(sver[0]) - 1;
 	CurrentVerse = parseInt(sver[1]);
-	updateThings(true);
+	document.getElementById('s-choose').value = (CurrentSurah + 1).toString() + ". " + snames[CurrentSurah];
+    document.getElementById('v-choose').value = (CurrentVerse).toString();
+
+	//console.log(CurrentSurah, CurrentVerse);
+	surahsChangeder();
 }
 function vright(vs)
 {
@@ -154,7 +161,14 @@ function vright(vs)
 		cur--;
 		var sur = parseInt(vs.split(":")[0]);
 		vsnew = vs.split(":")[0] + ":" + cur.toString() + " (" + snames[sur - 1] + ")";
-		document.getElementById("verse" + vs).innerHTML = 
+		
+		document.getElementById("verse" + vs).innerHTML = `
+			${vsnew}<br/>
+			<span class="arabic-font">${surahs[sur - 1][cur - 1]}</span><br/>
+			${tsurahs[sur - 1][cur - 1]}<br/>
+			<button onclick="vselect('${vs.split(":")[0]}:${cur.toString()}')" style="display: inline;">Select</button>
+		`;
+		var x = 
 			vsnew
 			+ "<br />"
 			+ surahs[sur - 1][cur - 1]
